@@ -1,0 +1,103 @@
+<html>
+<head>
+  <title>TY Time Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .break {
+      background-color: #ccc;
+      font-weight: bold;
+    }
+  </style> 
+</head>
+<body>
+  <h2>TY Time Table</h2>
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednesday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+    </tr>
+    <tr>
+      <td>09:00 AM - 10:00 AM</td>
+      <td>OS</td>
+      <td rowspan="2">OSL</td>
+      <td>ML</td>
+      <td>OS</td>
+      <td>OSL</td>
+    </tr>
+    <tr>
+      <td>10:00 AM - 11:00 AM</td>
+      <td>ML</td>
+      <!-- <td></td> -->
+      <td>OSL</td>
+      <td>ML</td>
+      <td>OSL</td>
+    </tr>
+    <tr>
+      <td>11:00 AM - 11:10 AM</td>
+      <td colspan="5" class="break">10 Min Break</td>
+    </tr>
+    <tr>
+      <td>11:10 AM - 12:10 PM</td>
+      <td>OSL</td>
+      <td>ML</td>
+      <td>OS</td>
+      <td>OSL</td>
+      <td>ML</td>
+    </tr>
+    <tr>
+      <td>12:10 PM - 01:10 PM</td>
+      <td>MLL</td>
+      <td>OS</td>
+      <td>OSL</td>
+      <td>MLL</td>
+      <td>OS</td>
+    </tr>
+    <tr>
+      <td>01:10 PM - 02:00 PM</td>
+      <td colspan="5" class="break">Mid Break</td>
+    </tr>
+    <tr>
+      <td>02:00 PM - 03:00 PM</td>
+      <td>OS</td>
+      <td>OSL</td>
+      <td>ML</td>
+      <td>OS</td>
+      <td>OSL</td>
+    </tr>
+    <tr>
+      <td>03:00 PM - 04:00 PM</td>
+      <td>MLL</td>
+      <td>OS</td>
+      <td>OSL</td>
+      <td>MLL</td>
+      <td>OS</td>
+    </tr>
+    <tr>
+      <td>04:00 PM - 05:00 PM</td>
+      <td>OSL</td>
+      <td>ML</td>
+      <td>OS</td>
+      <td>OSL</td>
+      <td>ML</td>
+    </tr>
+  </table>
+</body>
+</html>

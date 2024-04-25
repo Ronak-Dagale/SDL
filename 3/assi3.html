@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Facebook Registration Form</h2>
+  <form id="registrationForm">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName">
+      <span class="error-message" id="firstNameError"></span>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName">
+      <span class="error-message" id="lastNameError"></span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <span class="error-message" id="emailError"></span>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <span class="error-message" id="passwordError"></span>
+    </div>
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    firstNameInput.addEventListener('input', validateFirstName);
+    lastNameInput.addEventListener('input', validateLastName);
+    emailInput.addEventListener('input', validateEmail);
+    passwordInput.addEventListener('input', validatePassword);
+
+    function validateFirstName() {
+      const firstName = firstNameInput.value.trim();
+      document.getElementById('firstNameError').textContent = firstName === '' ? 'First name is required' : '';
+    }
+
+    function validateLastName() {
+      const lastName = lastNameInput.value.trim();
+      document.getElementById('lastNameError').textContent = lastName === '' ? 'Last name is required' : '';
+    }
+
+    function validateEmail() {
+      const email = emailInput.value.trim();
+      const emailError = document.getElementById('emailError');
+      if (email === '') {
+        emailError.textContent = 'Email is required';
+      } else if (!isValidEmail(email)) {
+        emailError.textContent = 'Invalid email format';
+      } else {
+        emailError.textContent = '';
+      }
+    }
+
+    function validatePassword() {
+      const password = passwordInput.value.trim();
+      const passwordError = document.getElementById('passwordError');
+      if (password === '') {
+        passwordError.textContent = 'Password is required';
+      } else if (password.length < 6) {
+        passwordError.textContent = 'Password must be at least 6 characters long';
+      } else {
+        passwordError.textContent = '';
+      }
+    }
+
+    function isValidEmail(email) {
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateFirstName();
+      validateLastName();
+      validateEmail();
+      validatePassword();
+
+      const firstName = firstNameInput.value.trim();
+      const lastName = lastNameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (firstName !== '' && lastName !== '' && isValidEmail(email) && password !== '' && password.length >= 6) {
+        // Form is valid, submit the form or perform other actions
+        alert('Form submitted successfully!');
+      }
+    });
+  </script>
+</body>
+</html>

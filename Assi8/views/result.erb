@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Result</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  p {
+    font-size: 24px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<% if @action == 'length' %>
+  <h1>Length of Names</h1>
+<% elsif @action == 'reverse' %>
+  <h1>Reversed Name</h1>
+<% elsif @action == 'capitalize' %>
+  <h1>Capitalized Names</h1>
+<% else %>
+  <h1>Result</h1>
+<% end %>
+
+<% if @result.is_a?(String) %>
+  <p><%= @result %></p>
+<% elsif @result.is_a?(Array) %>
+  <p>First Name: <%= @result[0] %></p>
+  <p>Last Name: <%= @result[1] %></p>
+<% else %>
+  <p>Invalid action</p>
+<% end %>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="student_info.xsd">
+    <student>
+        <PRN>1234567890</PRN>
+        <studentBasicInfo>
+            <name>Om Kothari</name>
+            <address>123 Main Street</address>
+            <state>Maharashtra</state>
+            <city>Pune</city>
+        </studentBasicInfo>
+        <education>
+            <class>10th</class>
+            <marks>95</marks>
+            <dateOfPassout>2020</dateOfPassout>
+        </education>
+        <education>
+            <class>12th</class>
+            <marks>88</marks>
+            <dateOfPassout>2022</dateOfPassout>
+        </education>
+    </student>
+    <student>
+        <PRN>0987654321</PRN>
+        <studentBasicInfo>
+            <name>Dhiraj Mutha</name>
+            <address>456 Oak Street</address>
+            <state>Maharashtra</state>
+            <city>Mumbai</city>
+        </studentBasicInfo>
+        <education>
+            <class>10th</class>
+            <marks>92</marks>
+            <dateOfPassout>2019</dateOfPassout>
+        </education>
+    </student>
+</students>

@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>File Size Calculator</title>
+</head>
+<style>
+  body{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .work{
+    background-color: aquamarine;
+    border: 1px solid black;
+  }
+</style>
+<body>
+  <div class="work">
+    <h1>File Size Calculator</h1>
+    <form action="calculate.php" method="post">
+        <label for="filename">Enter filename:</label>
+        <input type="text" id="filename" name="filename">
+        <button type="submit">Calculate Size</button>
+    </form>
+  </div>
+    <div id="result">
+    </div>
+</body>
+</html>
+

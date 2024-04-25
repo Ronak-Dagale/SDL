@@ -1,0 +1,444 @@
+sudo /opt/lampp/manager-linux-x64.run
+
+cd Downloads
+sudo chmod +x file
+sudo ./
+
+sudo su
+chmod -R 777 /opt/lampp/htdocs
+
+sudo service apache2 stop
+sudo service mysql stop
+
+------------ assi1 -------------------
+ 1) table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+    }
+    
+    
+ 2)    <td rowspan="2">OSL</td>
+ 3)   <td colspan="5" class="break">10 Min Break</td>
+     
+------------  assi3 ---------------
+1) <form id="registrationForm">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName">
+      <span class="error-message" id="firstNameError"></span>
+    </div>
+        <button type="submit">Register</button>
+  </form>
+  
+  
+   2) const firstNameInput = document.getElementById('firstName');
+    firstNameInput.addEventListener('input', validateFirstName);
+    function validateFirstName() {
+      const firstName = firstNameInput.value.trim();
+      document.getElementById('firstNameError').textContent = firstName === '' ? 'First name is required' : '';
+    }
+    
+    3)function isValidEmail(email) {
+      // Basic email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+------------------- assi 4 --------------------
+1) label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+    
+2) document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+3)  const firstName = document.getElementById('firstName').value.trim();
+document.getElementById('firstNameError').textContent = firstName === '' ? 'First name is required' : '';
+
+if (firstName !== '' && lastName !== '' && isValidEmail(email) && password !== '' && password.length >= 6) {
+        alert('Form submitted successfully!');
+      }
+      
+      
+--------------  assi 5 ---------------------
+1) <nav>
+   <ul>
+   <li>
+   <a href="index.html">Home</a>
+   </li>
+   </ul>
+</nav>
+
+2) <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+
+
+-------------------------------------------- Assi 6 ---------------------------------------
+1) body{display: flex;
+      justify-content: center;
+      align-items: center;
+      }
+2)   <input type="text" id="display" readonly>
+<br>
+    <input type="button" value="7" onclick="addToDisplay('7')">
+    
+    3)function calculate() {
+      try {
+        document.getElementById('display').value = eval(document.getElementById('display').value);
+      } catch(error) {
+        document.getElementById('display').value = 'Error';
+      }
+    }
+    
+------------------------------------------------ assi 7 -----------------------
+<script src="script.js" defer></script>
+const averageWeeksInLifetime = averageHumanLifespanYears * weeksInYear;
+const currentHour = new Date().getHours();
+
+function getTimeOfDay(hour) {
+  if (hour >= 5 && hour < 12) {
+    return "morning";
+  } else if (hour >= 12 && hour < 18) {
+    return "afternoon";
+  } else {
+    return "night";
+  }
+}
+
+const timeOfDay = getTimeOfDay(currentHour);
+console.log("Time of the day:", timeOfDay);
+console.log("Hour of the day:", currentHour);
+
+--------------------------  Assi 8 --------------------------------
+<form action="reg.php" method="post">
+<div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+             <input type="submit" value="Register" class="submit-btn">
+        </div>
+</form> 
+
+reg.php :  
+ <?php
+ $conn = mysqli_connect('localhost', 'root', '', 'mydb');
+ if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+     $name = $_POST['name'];
+     
+     $sql = "INSERT INTO mydb (name, email, password, mobileno) VALUES ('$name', '$email', '$password', '$mobileno')";
+    if ($conn->query($sql) === TRUE) {
+        echo '<p class="success-message">Registration successful!</p>';
+    } else {
+        echo '<p class="error-message">Error: ' . $conn->error . '</p>';
+    }
+    $conn->close();
+ ?>	
+ 
+ 
+ view_users.php :
+<?php
+   $conn = new mysqli($servername, $username, $password, $dbname);
+   
+   $sql = "SELECT name, email, mobileno FROM mydb";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // Output data of each row
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr><td>" . $row["name"] . "</td><td>" . $row["email"] . "</td><td>" . $row["mobileno"] . "</td></tr>";
+                }
+            } else {
+                echo "<tr><td colspan='3'>No registered users found</td></tr>";
+            }
+?>
+
+
+-------------------------- Assi 9 -----------------------------
+ <link rel="stylesheet" href="styles.css">
+ 
+ 
+<label for="vehicle_type">Vehicle Type:</label>
+            <select id="vehicle_type" name="vehicle_type" required>
+                <option value="Car">Car</option>
+                <option value="Bus">Bus</option>
+                <option value="Truck">Truck</option>
+            </select><br><br>
+            
+            
+if ($conn->query($sql) === TRUE) {
+    echo "<script>alert('Vehicle details submitted successfully!');</script>";
+    echo "<script>window.location.href = 'index.php';</script>";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+------------------ assi 13 --------------------------
+ document.getElementById("text").style.color = "red";
+ 
+ <button onclick="changeColor()">Change Text Color</button>
+ 
+ 
+ --------------- assi 14 --------------------------------
+ function generateFibonacci() {
+            // Get the number of terms from the input field
+            var numTerms = document.getElementById("numTerms").value;
+
+            // Initialize variables to store Fibonacci series
+            var fib = [];
+            fib[0] = 0;
+            fib[1] = 1;
+
+            // Generate Fibonacci series
+            for (var i = 2; i < numTerms; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+
+            // Display Fibonacci series on the HTML page
+            document.getElementById("result").innerHTML = "Fibonacci Series: " + fib.join(", ");
+        }
+        
+        
+----------- assi 15 ---------------------------------
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $filename = $_POST['filename'];
+        if (file_exists($filename)) {
+            $size = filesize($filename);
+            echo "<div>File size: $size bytes</div>";
+        } else {
+            echo "<div>File not found</div>";
+        }
+    }
+    ?>
+    <a href="index.html">Back to Calculator</a>
+    
+------------------ assi 17 -----------------------------------
+ <form onsubmit="return validateForm()">
+ <button type="submit">Sign Up</button>
+    </form>
+    
+    if (username == "") {
+                alert("Please enter a username.");
+                return false;
+            }
+                    alert("Welcome, " + username + "!");
+            return true;
+            
+            
+            
+            
+            
+---------------------------  assi 20 ----------------------
+ <video width="640" height="360" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    
+------------- assi ________________-
+<?php
+    	session_start();
+    	include('conn.php');
+    ?>
+    
+    <label>Username:</label> <input type="text" value="<?php if (isset($_COOKIE["user"])){echo $_COOKIE["user"];}?>" name="username">
+    
+    <input type="checkbox" name="remember" <?php if (isset($_COOKIE["user"]) && isset($_COOKIE["pass"])){ echo "checked";}?>> Remember me <br><br>
+    	<input type="submit" value="Login" name="login">
+
+<?php
+    		if (isset($_SESSION['message'])){
+    			echo $_SESSION['message'];
+    		}
+    		unset($_SESSION['message']);
+    	?>
+    	
+    	
+    	
+   $query=mysqli_query($conn,"select * from `user` where username='$username' && password='$password'");
+   
+   if (mysqli_num_rows($query) == 0){
+    			$_SESSION['message']="Login Failed. User not Found!";
+    			header('location:index.php');
+    		}
+    		else{
+    			$row=mysqli_fetch_array($query);
+     
+    			if (isset($_POST['remember'])){
+    				//set up cookie
+    				setcookie("user", $row['username'], time() + (86400 * 30)); 
+    				setcookie("pass", $row['password'], time() + (86400 * 30)); 
+    			}
+     
+    			$_SESSION['id']=$row['userid'];
+    			header('location:success.php');
+    		}
+    		
+    		
+    		
+    		logout :
+    		session_start();
+    	session_destroy();
+     
+    	if (isset($_COOKIE["user"]) AND isset($_COOKIE["pass"])){
+    		setcookie("user", '', time() - (3600));
+    		setcookie("pass", '', time() - (3600));
+    	}
+     
+    	header('location:index.php');
+    	
+    	session_start();
+     
+    	if (!isset($_SESSION['id']) ||(trim ($_SESSION['id']) == '')) {
+    		header('index.php');
+    		exit();
+    	}
+    	include('conn.php');
+    	$query=mysqli_query($conn,"select * from user where userid='".$_SESSION['id']."'");
+    	$row=mysqli_fetch_assoc($query);
+    	
+    	
+    	
+    	
+    	
+    	
+    	--------------------------------------- inheritance --------------------------------
+    	
+    	
+    	 <div class="output">
+        <?php
+        class Shape {
+            public function calculateArea() {
+                return 0;
+            }
+        }
+        class Triangle extends Shape {
+            private $base;
+            private $height;
+            public function __construct($base, $height) {
+                $this->base = $base;
+                $this->height = $height;
+            }
+            public function calculateArea() {
+                return 0.5 * $this->base * $this->height;
+            }
+            public function getParameters() {
+                return "Base: $this->base, Height: $this->height";
+            }
+        }
+        class Square extends Shape {
+            private $side;
+            public function __construct($side) {
+                $this->side = $side;
+            }
+            public function calculateArea() {
+                return $this->side * $this->side;
+            }
+            public function getParameters() {
+                return "Side: $this->side";
+            }
+        }
+        class Circle extends Shape {
+            private $radius;
+            public function __construct($radius) {
+                $this->radius = $radius;
+            }
+            public function calculateArea() {
+                return M_PI * $this->radius * $this->radius;
+            }
+            public function getParameters() {
+                return "Radius: $this->radius";
+            }
+        }
+        if (isset($_GET["shape"])) {
+            $selectedShape = $_GET["shape"];
+            switch ($selectedShape) {
+                case "triangle":
+                    $shape = new Triangle(10, 5);
+                    break;
+                case "square":
+                    $shape = new Square(8);
+                    break;
+                case "circle":
+                    $shape = new Circle(4);
+                    break;
+                default:
+                    $shape = new Shape();
+                    break;
+            }
+            echo "<p>Selected Shape: $selectedShape</p>";
+            echo "<p>" . $shape->getParameters() . "</p>";
+            echo "<p>Area: " . $shape->calculateArea() . "</p>";
+        }
+        ?>
+    </div>
+    
+    
+    
+    
+    
+    ---------------------------------------------  array -------------------------------
+    <body>
+    <h2>Array Search</h2>
+
+    <?php
+       
+        $employee_names = array(
+           "College of Engineering, Pune (COEP)",
+"Vishwakarma Institute of Technology (VIT)",
+"Pune Institute of Computer Technology (PICT)",
+"Maharashtra Institute of Technology (MIT)",
+"Sinhgad College of Engineering",
+"Army Institute of Technology (AIT)",
+"Bharati Vidyapeeth Deemed University College of Engineering",
+"Pimpri Chinchwad College of Engineering (PCCOE)",
+"DY Patil College of Engineering",
+"International Institute of Information Technology (IIIT), Pune",
+"MIT Academy of Engineering",
+"Symbiosis Institute of Technology (SIT)",
+"Dr. D.Y. Patil Institute of Technology",
+"Indira College of Engineering and Management",
+"Rajarshi Shahu College of Engineering",
+"All India Shri Shivaji Memorial Society's College of Engineering",
+"Genba Sopanrao Moze College of Engineering",
+"Alard College of Engineering and Management",
+"Marathwada Mitra Mandal's College of Engineering",
+"Sinhgad Institute of Technology and Science (SITS)"
+        );
+
+       
+        if (isset($_POST['search_name'])) {
+            $search_name = $_POST['search_name'];
+
+           
+            $found = in_array($search_name, $employee_names);
+
+            
+            if ($found) {
+                echo "<p>The name '$search_name' exists in the array.</p>";
+            } else {
+                echo "<p>The name '$search_name' does not exist in the array.</p>";
+            }
+        }
+    ?>
+
+    <!-- Display the form for searching -->
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <label for="search_name">Enter a name to search:</label>
+        <input type="text" name="search_name" id="search_name">
+        <button type="submit">Search</button>
+    </form>
+</body>

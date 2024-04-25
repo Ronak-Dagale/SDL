@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail Registration</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional custom styling */
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form id="registrationForm">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+              />
+              <span id="emailError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                required
+              />
+              <span id="usernameError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+              />
+              <span id="passwordError" class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password:</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                name="confirmPassword"
+                required
+              />
+              <span id="confirmPasswordError" class="error"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          // Prevent the default form submission
+          event.preventDefault();
+
+          // Fetch input values
+          var email = document.getElementById("email").value;
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+          // Reset errors
+          document.getElementById("emailError").textContent = "";
+          document.getElementById("usernameError").textContent = "";
+          document.getElementById("passwordError").textContent = "";
+          document.getElementById("confirmPasswordError").textContent = "";
+
+          // Validate email
+          if (!validateEmail(email)) {
+            document.getElementById("emailError").textContent =
+              "Invalid email address.";
+            return;
+          }
+
+          // Validate if email has gmail domain
+          if (!isGmail(email)) {
+            document.getElementById("emailError").textContent =
+              "Only Gmail addresses are allowed.";
+            return;
+          }
+
+          // Validate username
+          if (username.length < 6) {
+            document.getElementById("usernameError").textContent =
+              "Username must be at least 6 characters long.";
+            return;
+          }
+
+          // Validate password
+          if (password.length < 8) {
+            document.getElementById("passwordError").textContent =
+              "Password must be at least 8 characters long.";
+            return;
+          }
+
+          // Validate confirm password
+          if (password !== confirmPassword) {
+            document.getElementById("confirmPasswordError").textContent =
+              "Passwords do not match.";
+            return;
+          }
+
+          // If all validation passes, you can submit the form here
+          alert("Form submitted successfully!");
+        });
+
+      // Function to validate email format
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        if (re.test(email)) {
+          return isGmail(email);
+        }
+        return re.test(email);
+      }
+
+      // Function to check if email has gmail domain
+      function isGmail(email) {
+        var domain = email.split("@")[1];
+        return domain === "gmail.com";
+      }
+    </script>
+  </body>
+</html>

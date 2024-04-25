@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail Registration Form</title>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Gmail Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <span id="usernameError" class="error"></span>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <span id="emailError" class="error"></span>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <span id="passwordError" class="error"></span>
+      </div>
+      <div>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          required
+        />
+        <span id="confirmPasswordError" class="error"></span>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+
+        var usernameError = document.getElementById("usernameError");
+        var emailError = document.getElementById("emailError");
+        var passwordError = document.getElementById("passwordError");
+        var confirmPasswordError = document.getElementById(
+          "confirmPasswordError"
+        );
+
+        var isValid = true;
+
+        // Reset errors
+        usernameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+
+        // Username validation
+        if (username.length < 3) {
+          usernameError.textContent = "Username must be at least 3 characters";
+          isValid = false;
+        }
+
+        // Email validation
+        if (!email.includes("@")) {
+          emailError.textContent = "Invalid email address";
+          isValid = false;
+        } else if (!email.endsWith("@gmail.com")) {
+          emailError.textContent = "Only Gmail addresses are allowed";
+          isValid = false;
+        }
+
+        // Password validation
+        if (password.length < 8) {
+          passwordError.textContent = "Password must be at least 8 characters";
+          isValid = false;
+        }
+
+        // Confirm password validation
+        if (confirmPassword !== password) {
+          confirmPasswordError.textContent = "Passwords do not match";
+          isValid = false;
+        }
+
+        return isValid;
+      }
+    </script>
+  </body>
+</html>

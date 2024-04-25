@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm" onsubmit="return validateForm(event)">
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" name="firstName" required><span id="firstNameError" class="error"></span><br><br>
+
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" name="lastName" required><span id="lastNameError" class="error"></span><br><br>
+
+    <label for="organization">Organization:</label><br>
+    <input type="text" id="organization" name="organization" required><span id="organizationError" class="error"></span><br><br>
+
+    <label for="hobbies">Hobbies:</label><br>
+    <input type="text" id="hobbies" name="hobbies" required><span id="hobbiesError" class="error"></span><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+<div id="submittedInfo" style="display: none;">
+    <h2>Submitted Information</h2>
+    <p id="submittedFirstName"></p>
+    <p id="submittedLastName"></p>
+    <p id="submittedOrganization"></p>
+    <p id="submittedHobbies"></p>
+</div>
+<script>
+    function validateForm(event) {
+        event.preventDefault();
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var organization = document.getElementById("organization").value;
+        var hobbies = document.getElementById("hobbies").value;
+
+        var isValid = true;
+
+        // Validation for first name
+        if (firstName == "") {
+            document.getElementById("firstNameError").innerHTML = "First name is required";
+            isValid = false;
+        } else {
+            document.getElementById("firstNameError").innerHTML = "";
+        }
+
+        // Validation for last name
+        if (lastName == "") {
+            document.getElementById("lastNameError").innerHTML = "Last name is required";
+            isValid = false;
+        } else {
+            document.getElementById("lastNameError").innerHTML = "";
+        }
+
+        // Validation for organization
+        if (organization == "") {
+            document.getElementById("organizationError").innerHTML = "Organization is required";
+            isValid = false;
+        } else {
+            document.getElementById("organizationError").innerHTML = "";
+        }
+
+        // Validation for hobbies
+        if (hobbies == "") {
+            document.getElementById("hobbiesError").innerHTML = "Hobbies are required";
+            isValid = false;
+        } else {
+            document.getElementById("hobbiesError").innerHTML = "";
+        }
+
+        if(isValid)
+        {
+            document.getElementById("submittedFirstName").innerText = "First Name: " + firstName;
+            document.getElementById("submittedLastName").innerText = "Last Name: " + lastName;
+            document.getElementById("submittedOrganization").innerText = "Organization: " + organization;
+            document.getElementById("submittedHobbies").innerText = "Hobbies: " + hobbies;
+            document.getElementById("submittedInfo").style.display = "block";
+        }
+        return isValid;
+    }
+</script>
+
+</body>
+</html>

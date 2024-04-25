@@ -1,0 +1,49 @@
+ cmd :  sudo systemctl stop apache2
+ --------------------------------------------------------
+ ruby :
+ 
+ sudo apt update
+sudo apt install ruby-full
+sudo su
+gem install Sinatra
+
+OR
+
+sudo apt-get install ruby-full
+sudo apt-get update -y
+sudo apt-get install -y ruby-sinatra
+
+gem install rack
+sudo apt  install ruby-bundler
+
+bundle update
+
+gem update
+------------------------------------------------------------------------
+// 1 
+<tr>,<th>,<td rowspan="2">,<td colspan="5">
+---------------------------------------------------------------------
+//3 
+<div class="form-group">
+ <label for></label>  // display:block
+ <input type,id,name>
+ <span class,id></span>
+ 
+  firstNameInput.value.trim()
+  
+  input[type="text"]{
+  width:100%
+  padding:8px
+  }
+  
+  passwordError.textContent = 'Password is required';
+  ----------------------------------------------------------------
+  // 6
+  display: flex;
+      justify-content: center;
+      align-items: center;
+  
+  <input type="button" value="1" onclick="addToDisplay('1')">
+  eval(document.getElementById('display').value);
+  
+-------------------------------------------------------------------------
